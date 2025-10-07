@@ -1,15 +1,20 @@
-#include <jni.h>
 #include <opencv2/opencv.hpp>
+#include <iostream>
 
-using namespace cv;
+int main() {
+    std::string imagePath = "test.jpg"; // place your test image here
+    cv::Mat img = cv::imread(imagePath);
 
-extern "C" {
+    if(img.empty()) {
+        std::cout << "Could not read the image: " << imagePath << std::endl;
+        return 1;
+    }
 
-JNIEXPORT void JNICALL
-Java_com_example_ai_learning_CameraActivity_processFrame(JNIEnv *env, jobject obj, jlong matAddr) {
-    Mat &frame = *(Mat *)matAddr;
-    cvtColor(frame, frame, COLOR_RGBA2GRAY);
-    // Example: Basic image processing (convert to grayscale)
-}
+    cv::Mat gray;
+    cv::cvtColor(img, gray, cv::COLOR_BGR2GRAY);
 
+    cv::imwrite("output.jpg", gray);
+    std::cout << "Processed image saved as output.jpg" << std::endl;
+
+    return 0;
 }
