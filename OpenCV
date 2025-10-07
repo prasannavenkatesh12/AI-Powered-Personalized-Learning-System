@@ -8,4 +8,7 @@ It handles:
 - Communication between native C++ and Android layer via JNI.
 - Feature extraction for student attention analysis.
 
+Added OpenCV module structure and README
+
+
 
