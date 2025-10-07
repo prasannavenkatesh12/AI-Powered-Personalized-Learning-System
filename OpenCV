@@ -6,7 +6,7 @@ This folder contains the C++ and OpenCV-based computer vision logic used in the 
 It handles:
 - Camera frame capturing and processing (face detection, emotion tracking, etc.)
 - Communication between native C++ and Android layer via JNI.
-- Feature extraction for student attention analysis.
+- Feature extraction for student attention analysis .
 
 Added OpenCV module structure and README
 
